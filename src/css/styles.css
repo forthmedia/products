@@ -1,0 +1,148 @@
+body {
+    color: #333;
+    background-color: #dfdfdf;
+    font-family: Sans-Serif
+}
+#grid {
+    margin: auto;
+    width: 1149px;
+}
+@media screen and (max-width: 779px) {
+    #grid {
+        width: 393px;
+    }
+}
+@media screen and (min-width: 780px) {
+    #grid {
+        width: 780px;
+    }
+}
+@media screen and (min-width: 1159px) {
+    #grid {
+    width: 1160px;
+    }
+}
+#grid h1 {
+    margin-left: 10px;
+}
+.hero {
+    position: relative;
+    width: 363px;
+    height: 363px;
+    margin: 10px;
+    float: left;
+}
+.title {
+    box-sizing: border-box;
+    position: absolute;
+    font-variant: all-small-caps;
+    font-family: Sans-Serif;
+    background: #fff;
+    opacity: .5;
+    padding: 10px 8px;
+    font-weight: bolder;
+    color: #333;
+    width: 363px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.price {
+    position: absolute;
+    background-color: #666;
+    color: white;
+    padding: 8px;
+    top: 80%;
+    left: 15px;
+}
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 363px;
+    height: 363px;
+    z-index: 100;
+    display: none;
+    overflow: hidden;
+}
+.container {
+    position: relative;
+    height: 100%;
+    width: 3630px;
+}
+#close {
+    position: absolute;
+    top: 0;
+    right: 8px;
+    font-size: 36px;
+    font-weight: bold;
+    color:#666;
+    z-index: 200;
+    cursor: pointer;
+}
+#controls {
+    display: none;
+}
+#controls span {
+    background-color: white;
+    display: inline-block;
+    font-size: 36px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    opacity: .5;
+    border-radius: 50%;
+    z-index: 300;
+    cursor: pointer;
+}
+#left {
+    position: absolute;
+    top: 50%;
+}
+#right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+#indicator {
+    height: 40px;
+    width: 100%;
+    background-color: black;
+    opacity: .4;
+    display: none;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+.white-circle {
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+    padding: 4px;
+    display: inline-block;
+}
+.white-circle:after {
+    content: '\25cb';
+}
+.black-circle {
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+    padding: 4px;
+    display: inline-block;
+}
+.black-circle:after {
+    content: '\25cf';
+}
+#screen {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: .85;
+    display: none;
+}
