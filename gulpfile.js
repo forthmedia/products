@@ -7,6 +7,7 @@ var gulpif = require('gulp-if');
 var cssnano = require('gulp-cssnano');
 var del = require('del');
 var runSequence = require('run-sequence');
+const eslint = require('gulp-eslint');
 
 gulp.task('default', ['watch']);
 
@@ -29,7 +30,7 @@ gulp.task('minify', function() {
   return gulp.src('src/*.html')
     .pipe(useref())
     // minify only if JavaScript
-    .pipe(gulpif('*.js', babel({presets: ['env']})))
+    .pipe(gulpif('*.js', babel()))
     .pipe(gulpif('*.js', uglify()))
     // minify only if CSS
     .pipe(gulpif('*.css', cssnano()))
@@ -38,7 +39,7 @@ gulp.task('minify', function() {
 
 ////////// BUILD DISTRIBUTION FOLDER
 gulp.task('build', function (callback) {
-  runSequence('clean', ['minify', 'json'],
+  runSequence('clean', 'lint', 'minify', 'json',
     callback
   )
 });
@@ -46,6 +47,14 @@ gulp.task('build', function (callback) {
 gulp.task('json', function() {
   return gulp.src('src/*.json')
       .pipe(gulp.dest('dist'))
+});
+
+////////// LINT
+gulp.task('lint', function () {
+  return gulp.src('src/js/**/*.js')
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 ////////// CLEAN DISTRIBUTION FOLDER

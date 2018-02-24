@@ -31,7 +31,6 @@ class Modal {
         let item = this.arr.find(x => x.id == id);
         if (item.images.length) {
             this.count = item.images.length;
-            console.log("count ", this.count);
             item.images.map(images => {
                 let img = document.createElement("img");
                 img.src = images.href;
@@ -107,5 +106,12 @@ class Modal {
     isActive() {
         return this.active;
     }
+}
+const modal = new Modal();
+
+document.onkeydown = function(e) {
+    e = e || window.event;
+    if (e.keyCode == 27) {
+        modal.hide();
+    }
 };
-var modal = new Modal();

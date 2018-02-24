@@ -1,3 +1,5 @@
+/* global modal */
+
 function getJSON(url) {
     return new Promise(function(resolve, reject) {
         var xhr = new XMLHttpRequest();
@@ -44,6 +46,7 @@ function parseInput(input) {
             price.innerHTML = selling;
             image.src = item.hero.href
             image.setAttribute("id", item.id);
+            image.alt = "gallery";
             image.onclick = function() { return clickHandler(this); }
             element.appendChild(title);
             element.appendChild(price);
