@@ -3,6 +3,8 @@ This project uses an ES6 JavaScript Promise (src/js/Scripts.js) to consume and t
 
 There is a GulpFile which builds the project by Babel compiling ES6, then combines and minifies JS and CSS for distribution.
 
+The products page has responsive column breaks for desktop, pad and mobile devices.
+
 See the code in action here
 
 http://www.forth-media.com/git/products/
