@@ -111,7 +111,7 @@ const modal = new Modal();
 
 document.onkeydown = function(e) {
     e = e || window.event;
-    if (e.keyCode == 27) {
+    if (e.keyCode == 27 && modal.isActive()) {
         modal.hide();
     }
 };
