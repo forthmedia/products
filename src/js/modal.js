@@ -15,14 +15,13 @@ class Modal {
         document.getElementById("right").onclick = () => { return this.right(); }
 
         if (input.groups.length) {
-            input.groups.map(item => {
-                let o = {};
-                o.id = item.id;
-                o.images = [];
-                item.images.map( x => {
-                    o.images.push({href: x.href});
-                });
-                this.arr.push(o);
+            this.arr = input.groups.map(item => {
+                return {
+                    id: item.id,
+                    images: item.images.map( x => {
+                        return { href: x.href };
+                    })
+                }
             });
         }
     }
